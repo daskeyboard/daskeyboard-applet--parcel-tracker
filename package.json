@@ -1,9 +1,9 @@
 {
-  "name": "daskeyboard-applet--ups-tracker",
+  "name": "daskeyboard-applet--parcel-tracker",
   "version": "1.0.0",
   "publisher": "Das Keyboard",
   "authorName": "Das Keyboard",
-  "displayName": "UPS tracker",
+  "displayName": "package tracker",
   "icon": "assets/icon.png",
   "image": "assets/image.png",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
@@ -11,9 +11,9 @@
   "readMeEndUserUrl": "README_ENDUSER.md",
   "authorUrl": "https://twitter.com/daskeyboard",
   "readMeUrl": "README.md",
-  "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--ups-tracker/issues",
-  "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--ups-tracker",
-  "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--ups-tracker",
+  "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker/issues",
+  "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker",
+  "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker",
   "description": "Track your shippement using color indicators",
   "main": "index.js",
   "scripts": {
@@ -22,14 +22,13 @@
     "test": "mocha"
   },
   "engines": {
-    "das-keyboard-q": "3.2.2"
+    "das-keyboard-q": "3.0.0"
   },
   "author": "Das Keyboard",
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.11.3",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "track-my-parcel": "^1.0.2"
   },
   "qConfig": {
     "geometry": {
@@ -45,25 +44,14 @@
     "questions": [
       {
         "key": "trackingNumber",
-        "label": "Enter your tracking number from UPS",
+        "label": "Enter your tracking number from ",
         "controlType": "textbox",
         "order": 1,
         "required": true
-      },
-      {
-        "key": "progressColor",
-        "label": "Choose the color of the progress bar",
-        "controlType": "color",
-        "order": 2,
-        "value": "#00FF00"
-      },
-      {
-        "key": "backgroundColor",
-        "label": "Choose the color of the progress bar background",
-        "order": 3,
-        "controlType": "color",
-        "value": "#FFFF00"
       }
     ]
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }

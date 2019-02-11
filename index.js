@@ -1,19 +1,10 @@
-const request = require('request-promise');
 const q = require('daskeyboard-applet');
+const tracker = require('track-my-parcel');
 const logger = q.logger;
-const trackingBaseUrl = 'https://www.ups.com/track/api/Track/GetStatus?loc=en_US';
 
 const STATUS_TYPES = ['D', 'P', 'M', 'I'];
 
-class UPSTrackingInfos {
-  constructor(responseJSON = {}) {
-    if (responseJSON.trackDetails && responseJSON.trackDetails.length > 0) {
-      this.packageStatus = responseJSON.trackDetails[0].packageStatus;
-      this.progressBarPercentage = responseJSON.trackDetails[0].progressBarPercentage;
-      this.packageStatusType = responseJSON.trackDetails[0].packageStatusType;
-    }
-  }
-}
+
 
 /**
  * Given a tracking number.
@@ -21,31 +12,16 @@ class UPSTrackingInfos {
  * @param {*} trackingNumber 
  */
 async function getUPSTrackingInfos(trackingNumber) {
-  const options = {
-    method: 'POST',
-    uri: trackingBaseUrl,
-    body: {
-      Locale: "en_US",
-      TrackingNumber: [
-        `${trackingNumber}`
-      ]
-    },
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
-    },
-    json: true
-  }
-
-  return request(options).then(response => {
-    return new UPSTrackingInfos(response);
+  return new Promise((resolve, reject) => {
+    tracker.Track(trackingNumber, (infos) => {
+      resolve(infos);
+    })
   });
 }
 
 
 
-class QUPSTracker extends q.DesktopApp {
+class QTracker extends q.DesktopApp {
   constructor() {
     super();
     // run every 30 minutes
@@ -78,8 +54,8 @@ class QUPSTracker extends q.DesktopApp {
    * number of keys to light
    */
   getColor(index, numberOfKeysToLight) {
-    const progressBarColor = this.config.progressColor || '#00FF00';
-    const backgroundColor = this.config.backgroundColor || '#FFFF00';
+    const progressBarColor = '#00FF00';
+    const backgroundColor = '#FFFF00';
     if (index >= numberOfKeysToLight) {
       return backgroundColor;
     } else {
@@ -138,11 +114,11 @@ class QUPSTracker extends q.DesktopApp {
 
 
 
-const tracker = new QUPSTracker();
+const parcelTracker = new QTracker();
 
 
 module.exports = {
-  QUPSTracker: QUPSTracker
+  QUPSTracker: QTracker
 }
 
 
