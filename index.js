@@ -2,10 +2,6 @@ const q = require('daskeyboard-applet');
 const tracker = require('track-my-parcel');
 const logger = q.logger;
 
-const STATUS_TYPES = ['D', 'P', 'M', 'I'];
-
-
-
 /**
  * Given a tracking number.
  * Get tracking information from the UPS API
@@ -13,7 +9,11 @@ const STATUS_TYPES = ['D', 'P', 'M', 'I'];
  */
 async function getUPSTrackingInfos(trackingNumber) {
   return new Promise((resolve, reject) => {
-    tracker.Track(trackingNumber, (infos) => {
+    tracker.Track(trackingNumber, (infos, err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
       resolve(infos);
     })
   });
@@ -78,17 +78,16 @@ class QTracker extends q.DesktopApp {
        * If a percentage is provided. Generate the points like a bar graph.
        * Other wise color the applet in white
        */
-      if (upsStatus.progressBarPercentage
-        || STATUS_TYPES.includes(upsStatus.packageStatusType)) {
-        points = this.generatePoints(+upsStatus.progressBarPercentage);
+      if (upsStatus.statusPercentage) {
+        points = this.generatePoints(+upsStatus.statusPercentage);
       } else {
         const numberOfKeysToLight = this.getWidth();
         for (let i = 0; i < numberOfKeysToLight; i++) {
           points.push(new q.Point('#FFFFFF'));
         }
       }
-      if (upsStatus.packageStatus) {
-        message = upsStatus.packageStatus;
+      if (upsStatus.statusLabel) {
+        message = upsStatus.statusLabel;
       } else {
         message = `Applet cannot resolve delivery status`;
       }
