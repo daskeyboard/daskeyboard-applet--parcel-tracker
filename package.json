@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.11.3",
-    "track-my-parcel": "^1.0.2"
+    "track-my-parcel": "^1.0.4"
   },
   "qConfig": {
     "geometry": {
@@ -48,6 +48,13 @@
         "controlType": "textbox",
         "order": 1,
         "required": true
+      },
+      {
+        "key": "trackingContent",
+        "label": "What is being tracked",
+        "help": "Example: Sister birthday present",
+        "order": 2,
+        "controlType": "textbox"
       }
     ]
   },

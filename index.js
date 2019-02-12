@@ -19,13 +19,11 @@ async function getUPSTrackingInfos(trackingNumber) {
   });
 }
 
-
-
 class QTracker extends q.DesktopApp {
   constructor() {
     super();
-    // run every 30 minutes
-    this.pollingInterval = 60 * 1000 * 30;
+    // run every 10 minutes
+    this.pollingInterval = 60 * 1000 * 10;
   }
 
   generatePoints(percent) {
@@ -54,8 +52,8 @@ class QTracker extends q.DesktopApp {
    * number of keys to light
    */
   getColor(index, numberOfKeysToLight) {
-    const progressBarColor = '#00FF00';
-    const backgroundColor = '#FFFF00';
+    const progressBarColor = '#00FF00'; // Green
+    const backgroundColor = '#c029ff'; // Purple
     if (index >= numberOfKeysToLight) {
       return backgroundColor;
     } else {
@@ -69,43 +67,46 @@ class QTracker extends q.DesktopApp {
       logger.error(`No tracking number found in configuration`);
       return;
     }
-    return getUPSTrackingInfos(trackingNumber).then(upsStatus => {
+    return getUPSTrackingInfos(trackingNumber).then(trackingInfo => {
+      logger.info(`Got tracking info ${JSON.stringify(trackingInfo)}`);
       let points = [];
-      const signalTitle = `UPS package tracker`;
+      const signalTitle = `Parcel tracker`;
       let message = '';
 
       /*
        * If a percentage is provided. Generate the points like a bar graph.
        * Other wise color the applet in white
        */
-      if (upsStatus.statusPercentage) {
-        points = this.generatePoints(+upsStatus.statusPercentage);
-      } else {
-        const numberOfKeysToLight = this.getWidth();
-        for (let i = 0; i < numberOfKeysToLight; i++) {
-          points.push(new q.Point('#FFFFFF'));
-        }
-      }
-      if (upsStatus.statusLabel) {
-        message = upsStatus.statusLabel;
+      points = this.generatePoints(+trackingInfo.statusPercentage);
+      if (trackingInfo.statusLabel) {
+        message = trackingInfo.statusLabel;
       } else {
         message = `Applet cannot resolve delivery status`;
       }
 
-      message = `<div>${message}</div><br><div>${this.config.trackingNumber}</div>`
+      message = `${this.config.trackingContent}`
+        + `<div>${message}</div>`
+        + `<br>${trackingInfo.carrierName}`
+        + `<br>${this.config.trackingNumber}`;
+
+      // build the link for more info if available
+      let link;
+      if (trackingInfo.detailsLink) {
+        link = {
+          url: trackingInfo.detailsLink,
+          label: `Show more information`
+        }
+      }
       return new q.Signal({
         points: [points],
         name: signalTitle,
         message: message,
-        link: {
-          url: `https://www.ups.com/track?loc=en_US&tracknum=${this.config.trackingNumber}&requester=WT/trackdetails`,
-          label: `Show in UPS`
-        }
-      })
+        link: link
+      });
 
     }).catch(err => {
-      logger.error(`Error when getting UPS Tracking infos ${err}`);
-      return q.Signal.error([`The UPS service returned an error. Please contact the applet author.`,
+      logger.error(`Error when getting parcel tracking infos ${err}`);
+      return q.Signal.error([`The parcel tracker returned an error. Please contact the applet author.`,
         `Detail: ${err}`]);
     })
   }
