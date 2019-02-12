@@ -7,7 +7,7 @@ const logger = q.logger;
  * Get tracking information from the UPS API
  * @param {*} trackingNumber 
  */
-async function getUPSTrackingInfos(trackingNumber) {
+async function getParcelTrackingInfos(trackingNumber) {
   return new Promise((resolve, reject) => {
     tracker.Track(trackingNumber, (infos, err) => {
       if (err) {
@@ -67,7 +67,7 @@ class QTracker extends q.DesktopApp {
       logger.error(`No tracking number found in configuration`);
       return;
     }
-    return getUPSTrackingInfos(trackingNumber).then(trackingInfo => {
+    return getParcelTrackingInfos(trackingNumber).then(trackingInfo => {
       logger.info(`Got tracking info ${JSON.stringify(trackingInfo)}`);
       let points = [];
       const signalTitle = `Parcel tracker`;
@@ -118,7 +118,8 @@ const parcelTracker = new QTracker();
 
 
 module.exports = {
-  QUPSTracker: QTracker
+  QUPSTracker: QTracker,
+  getParcelTrackingInfos: getParcelTrackingInfos
 }
 
 
