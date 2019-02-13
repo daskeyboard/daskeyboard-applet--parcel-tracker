@@ -84,7 +84,7 @@ class QTracker extends q.DesktopApp {
         message = `Applet cannot resolve delivery status`;
       }
 
-      message = `${this.config.trackingContent}`
+      message = `${this.config.trackingContent ? this.config.trackingContent + ':': ''}`
         + `<div>${message}</div>`
         + `<br>${trackingInfo.carrierName}`
         + `<br>${this.config.trackingNumber}`;

@@ -14,7 +14,7 @@
   "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker/issues",
   "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
   "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
-  "description": "Tracks a shippement with a colored progress bar (UPS, Fedex).",
+  "description": "Tracks a shipment with a colored progress bar (UPS, Fedex).",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.11.3",
-    "track-my-parcel": "^1.0.5"
+    "track-my-parcel": "^1.0.6"
   },
   "qConfig": {
     "geometry": {

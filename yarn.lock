@@ -723,10 +723,10 @@ tough-cookie@~2.4.3:
     psl "^1.1.24"
     punycode "^1.4.1"
 
-track-my-parcel@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/track-my-parcel/-/track-my-parcel-1.0.5.tgz#9336517239952fced9bf4447c95a821ee4198278"
-  integrity sha512-l7tMeBxk/YzjTAAZ7dNxeGfRCjHyHCsogPxJS5VlP7vKvgSbUpImPu1+13qUbE3wmEP3PVRp5C4Nl0/1FvWnCw==
+track-my-parcel@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/track-my-parcel/-/track-my-parcel-1.0.6.tgz#b766ad244d4767b8cd5b7734927972e106a20257"
+  integrity sha512-b2s3mgJjbxYPLrMH+/iQZnDtSDKIlMC7ZCiigcWeXm8/SrLue9Ys/YvvLmvizeTmZvu17lCSUcPan3brPyHzlw==
   dependencies:
     request "^2.88.0"
     request-promise "^4.2.2"
