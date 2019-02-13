@@ -45,6 +45,7 @@
       {
         "key": "trackingNumber",
         "label": "Enter your tracking number from ",
+        "placeholder": "E.g.: 1zxa13670367620789",
         "controlType": "textbox",
         "order": 1,
         "required": true
@@ -52,6 +53,7 @@
       {
         "key": "trackingContent",
         "label": "What is being tracked",
+        "placeholder": "E.g.: Mom's birthday present",
         "help": "Example: Sister birthday present",
         "order": 2,
         "controlType": "textbox"
