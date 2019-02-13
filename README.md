@@ -1,6 +1,6 @@
-# Q Applet: Parcel tracker
+# Q Applet: Parcel Tracker
 
-Displays the progress of a shipment as progress bar of 5 keys.
+Displays the progress of a shipment as a progress bar of 5 keys.
 
 This applet supports:
 
@@ -27,7 +27,7 @@ the Q Desktop application (https://www.daskeyboard.com/q)
 ## Contributions
 
 Pull requests welcome.
-To add more carriers contribute to the npm module [track-my-parcel](https://github.com/daskeyboard/track-my-parcel)
+To add more carriers, contribute to the npm module [track-my-parcel](https://github.com/daskeyboard/track-my-parcel).
 
 ## Copyright / License
 

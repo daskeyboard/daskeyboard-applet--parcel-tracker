@@ -1,10 +1,10 @@
-# Parcel tracker
+# Parcel Tracker
 
-Displays the progress of a shipment as progress bar of 5 keys.
+Displays the progress of a shipment as a progress bar of 5 keys.
 
 This applet supports:
 
 - UPS
 - Fedex
 
-![Parcel tracker](assets/image.png "Parcel tracker")
+![Parcel Tracker](assets/image.png "Parcel Tracker")

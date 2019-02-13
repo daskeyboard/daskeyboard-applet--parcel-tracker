@@ -1,9 +1,9 @@
 {
   "name": "daskeyboard-applet--parcel-tracker",
-  "version": "1.0.0",
+  "version": "1.0.0-beta",
   "publisher": "Das Keyboard",
   "authorName": "Das Keyboard",
-  "displayName": "Parcel tracker",
+  "displayName": "Parcel Tracker - beta",
   "icon": "assets/icon.png",
   "image": "assets/image.png",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
@@ -14,7 +14,7 @@
   "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker/issues",
   "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
   "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
-  "description": "Tracks a shippement using color indicators.",
+  "description": "Tracks a shippement with a colored progress bar (UPS, Fedex).",
   "main": "index.js",
   "scripts": {
     "start": "node .",
