@@ -1,12 +1,10 @@
-# Montastic
+# Parcel tracker
 
-Montastic monitor URLs and sends an email when a website goes down.
+Displays the progress of a shipment as progress bar of 5 keys.
 
-This applet displays Montastic alarms on a Q device:
+This applet supports:
 
-- <span style="color:green">Green</span>: website is OK
-- <span style="color:red">Red</span>: website alarm
+- UPS
+- Fedex
 
-To get started, signup for a free Montastic account at <https://www.montastic.com>.
-
-![Montastic on a Das Keybaord Q](assets/image.png "Das Keyboard Montastic applet")
+![Parcel tracker](assets/image.png "Parcel tracker")

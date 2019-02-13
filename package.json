@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "publisher": "Das Keyboard",
   "authorName": "Das Keyboard",
-  "displayName": "package tracker",
+  "displayName": "Parcel tracker",
   "icon": "assets/icon.png",
   "image": "assets/image.png",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
@@ -11,10 +11,10 @@
   "readMeEndUserUrl": "README_ENDUSER.md",
   "authorUrl": "https://twitter.com/daskeyboard",
   "readMeUrl": "README.md",
-  "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker/issues",
-  "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker",
-  "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--package-tracker",
-  "description": "Track your shippement using color indicators",
+  "issuesUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker/issues",
+  "developerRepoUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
+  "homePageUrl": "https://github.com/daskeyboard/daskeyboard-applet--parcel-tracker",
+  "description": "Tracks a shippement using color indicators.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.11.3",
-    "track-my-parcel": "^1.0.4"
+    "track-my-parcel": "^1.0.5"
   },
   "qConfig": {
     "geometry": {
