@@ -54,7 +54,6 @@
         "key": "trackingContent",
         "label": "What is being tracked",
         "placeholder": "E.g.: Mom's birthday present",
-        "help": "Example: Sister birthday present",
         "order": 2,
         "controlType": "textbox"
       }
