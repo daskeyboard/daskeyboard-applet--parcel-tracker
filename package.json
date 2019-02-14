@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.11.3",
-    "track-my-parcel": "^1.0.6"
+    "track-my-parcel": "^1.0.7"
   },
   "qConfig": {
     "geometry": {
