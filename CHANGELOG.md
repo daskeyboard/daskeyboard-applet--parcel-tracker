@@ -1,3 +1,9 @@
+#### 1.0.0-beta.3 (2019-02-14)
+
+##### Bug Fixes
+
+* **Fedex:**  fixed progress bar when fedex package is in transit (a5772cb4)
+
 #### 1.0.0-beta.2 (2019-02-13)
 
 ##### Bug Fixes
