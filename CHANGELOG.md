@@ -1,3 +1,9 @@
+#### 1.0.0-beta.4 (2019-04-17)
+
+##### Bug Fixes
+
+* **Signal:**  Handled internet configuration error
+
 #### 1.0.0-beta.3 (2019-02-14)
 
 ##### Bug Fixes
