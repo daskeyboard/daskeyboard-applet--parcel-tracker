@@ -62,6 +62,7 @@ class QTracker extends q.DesktopApp {
   }
 
   async run() {
+    logger.info("Parcel Tracker running.");
     const trackingNumber = this.config.trackingNumber;
     if (!trackingNumber) {
       logger.error(`No tracking number found in configuration`);
@@ -104,11 +105,12 @@ class QTracker extends q.DesktopApp {
         link: link
       });
 
-    }).catch(err => {
-      logger.error(`Error when getting parcel tracking infos ${err}`);
-      return q.Signal.error([`The parcel tracker returned an error. Please contact the applet author.`,
-        `Detail: ${err}`]);
-    })
+    }).catch(error => {
+      logger.error(`Error when getting parcel tracking infos: ${error}`);
+      return q.Signal.error([
+        'The Parcel Tracker service returned an error. <b>Please check your package ID or your internet connection</b>.',
+      ]);
+    });
   }
 }
 
