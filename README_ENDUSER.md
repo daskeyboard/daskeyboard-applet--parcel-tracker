@@ -7,4 +7,4 @@ This applet supports:
 - UPS
 - Fedex
 
-![Parcel Tracker](assets/image.png "Parcel Tracker")
+![Parcel Tracker on a Das Keyboard Q](assets/image.png "Das Keyboard Parcel Tracker applet")
